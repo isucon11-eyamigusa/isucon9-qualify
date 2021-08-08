@@ -13,6 +13,15 @@ services:
       MYSQL_USER: isucari
       MYSQL_PASSWORD: isucari
       MYSQL_DATABASE: isucari
+  phpmyadmin:
+    image: phpmyadmin:5.1
+    restart: always
+    ports:
+      - '127.0.0.1:8500:80'
+    environment:
+      PMA_HOST: db:3306
+    depends_on:
+      - db
 
 volumes:
   db-data:
